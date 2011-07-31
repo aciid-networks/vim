@@ -62,6 +62,14 @@ endfu
 :imap <C-S-BS> <C-O>:call DeleteBeginLine()<CR>
 :imap <C-S-Del> <C-O>d<End>
 
+" Move entire line/block up and down
+nnoremap <C-S-DOWN> :m+<CR>==
+nnoremap <C-S-UP> :m-2<CR>==
+inoremap <C-S-DOWN> <Esc>:m+<CR>==gi
+inoremap <C-S-UP> <Esc>:m-2<CR>==gi
+vnoremap <C-S-DOWN> :m'>+<CR>gv=gv
+vnoremap <C-S-UP> :m-2<CR>gv=gv
+
 " Highlight on overlenght
 if exists('+colorcolumn')
 	set colorcolumn=79
