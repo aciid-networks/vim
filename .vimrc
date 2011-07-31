@@ -2,7 +2,6 @@ set nocompatible
 
 filetype indent plugin on
 syntax on
-colorscheme inkpot
 
 set hidden
 set wildmenu
@@ -72,6 +71,8 @@ endif
 
 if has("gui_running")
 	:imap <C-Z> <C-O>u
+
+	colorscheme inkpot
 
 	set gfn=ProggyCleanTT\ 12
 
