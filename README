@@ -1,0 +1,7 @@
+Plugins:
+ clang_complete.vim
+ delimitMate.vim
+ mru.vim
+ NERD_commenter.vim
+ snipMate.vim
+ supertab.vim
