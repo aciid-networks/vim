@@ -84,7 +84,7 @@ if has("gui_running")
 	" Open (ctrl+e)
 	:map <silent> <C-E> :browse confirm e<CR>
 	:imap <C-E> <C-O><C-E>
-	" Open in new tab (ctrl+n)
+	" Open in new tab (ctrl+t)
 	:map <silent> <C-T> :browse tabnew<CR>
 	:imap <C-T> <C-O><C-T>
 endif
