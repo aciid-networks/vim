@@ -1,5 +1,9 @@
 set nocompatible
 
+filetype indent plugin on
+syntax on
+colorscheme inkpot
+
 set hidden
 set wildmenu
 set showcmd
@@ -26,9 +30,16 @@ set cursorline
 " Complete only the current buffer and includes
 set complete=.,i
 
-filetype indent plugin on
-syntax on
-colorscheme darkblue
+" Complete options (disable preview scratch window)
+set completeopt=menu,menuone,longest
+
+" SuperTab option for context aware completion
+let g:SuperTabDefaultCompletionType="context"
+ 
+" Disable auto popup, use <Tab> to autocomplete
+let g:clang_complete_auto=0
+" Show clang errors in the quickfix window
+let g:clang_complete_copen=1
 
 " Select all (ctrl+a)
 :map <silent> <C-A> gg0vG$
@@ -74,7 +85,6 @@ if has("gui_running")
 	:map <silent> <C-E> :browse confirm e<CR>
 	:imap <C-E> <C-O><C-E>
 	" Open in new tab (ctrl+n)
-	:map <silent> <C-N> :browse tabnew<CR>
-	:imap <C-N> <C-O><C-N>
+	:map <silent> <C-T> :browse tabnew<CR>
+	:imap <C-T> <C-O><C-T>
 endif
-
