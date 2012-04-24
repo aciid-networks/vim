@@ -1,7 +1,15 @@
 Plugins:
- clang_complete.vim
- delimitMate.vim
  mru.vim
- NERD_commenter.vim
- snipMate.vim
+ autotag.vim
+ syntastic.vim
+ clang_complete.vim
+ libclang.py
+ tagbar.vim
+ l9.vim
+ fuf.vim
+ DoxygenToolkit.vim
+ perl-support.vim
  supertab.vim
+ snipMate.vim
+ delimitMate.vim
+ NERD_commenter.vim
