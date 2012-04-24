@@ -3,7 +3,6 @@ Plugins:
  autotag.vim
  syntastic.vim
  clang_complete.vim
- libclang.py
  tagbar.vim
  l9.vim
  fuf.vim
