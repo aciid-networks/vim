@@ -139,15 +139,18 @@ if has("gui_running")
 	set lines=35 columns=110
 	set guioptions-=T
 
+	" Create new tab (ctrl+n)
+	map <silent> <C-N> :tabnew<CR>
+	imap <C-S-E> <C-O><C-N>
 	" Save (ctrl+s)
 	map <silent> <C-S> :if expand("%") == ""<CR>:browse confirm w<CR>:else<CR>:confirm w<CR>:endif<CR>
 	imap <C-S> <C-O><C-S>
 	" Open (ctrl+e)
 	map <silent> <C-E> :browse confirm e<CR>
 	imap <C-E> <C-O><C-E>
-	" Open in new tab (ctrl+t)
-	map <silent> <C-S-E> :browse tabnew<CR>
-	imap <C-S-E> <C-O><C-T>
+	" Open in new tab (ctrl+n+e)
+	map <silent> <C-N><C-E> :browse tabnew<CR>
+	imap <C-S-E> <C-O><C-N><C-E>
 endif
 
 " Highlight on overlenght
