@@ -21,10 +21,17 @@ set autoindent
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
+set smarttab
+
+set cindent
+set cino=(0,u0,U0
+
 set foldmethod=indent
 set foldlevelstart=99
 map <C-Space> za
 imap <C-Space> <C-O>za
+
+set cscopetag
 
 set nostartofline
 set ruler
@@ -44,6 +51,18 @@ vnoremap k gk
 
 " Clear search pattern
 map <silent> <Leader>c :let @/ = ""<CR>
+
+" Highlight local variables
+let g:TagHighlightSettings={'IncludeLocals':'True'}
+function CustomTagHighlight()
+	hi LocalVariable guifg=#ff00ff
+	hi GlobalVariable guifg=#ff00ff
+endfunction
+au Syntax c,cpp call CustomTagHighlight()
+
+" Clang compilation options file for Syntastic (if needed)
+let g:syntastic_c_config_file = '.clang_complete'
+let g:syntastic_cpp_config_file = '.clang_complete'
 
 " Quickfix and compilation shortcuts
 autocmd BufReadPost quickfix setlocal nonumber | setlocal colorcolumn=""
@@ -85,7 +104,11 @@ let g:fuf_keyOpenSplit="<C-S>"
 let g:fuf_keyOpenVsplit="<C-V>"
 
 " Show most resently used files window
-map <F3> :Mru<CR>
+map <F2> :Mru<CR>
+imap <F2> <C-O><F2>
+
+" Show undo tree
+nnoremap <F3> :GundoToggle<CR>
 imap <F3> <C-O><F3>
 
 " Show Tagbar window
@@ -96,10 +119,12 @@ imap <F4> <C-O><F4>
 set complete=.,i
 
 " Complete options (disable preview scratch window)
-set completeopt=menu,menuone,longest
+set completeopt=menu,menuone ",longest
 
 " SuperTab option for context aware completion
 let g:SuperTabDefaultCompletionType="context"
+set ofu=syntaxcomplete#Complete
+let g:SuperTabContextDefaultCompletionType='<c-x><c-o>'
  
 " Compatibility with delimitMate expand CR
 let g:SuperTabCrMapping=0
@@ -130,8 +155,13 @@ vnoremap <C-S-UP> :m-2<CR>gv=gv
 if has("gui_running")
 	imap <C-Z> <C-O>u
 
+	" Powerline settings
+	set laststatus=2
+	set encoding=utf-8
+	let g:Powerline_symbols = 'fancy'
+
 "	colorscheme inkpot
-	colorscheme asu1dark
+	colorscheme sift
 
 "	set gfn=ProggyCleanTT\ 12
 	set gfn=Monospace\ 8
@@ -141,16 +171,13 @@ if has("gui_running")
 
 	" Create new tab (ctrl+n)
 	map <silent> <C-N> :tabnew<CR>
-	imap <C-S-E> <C-O><C-N>
 	" Save (ctrl+s)
 	map <silent> <C-S> :if expand("%") == ""<CR>:browse confirm w<CR>:else<CR>:confirm w<CR>:endif<CR>
 	imap <C-S> <C-O><C-S>
 	" Open (ctrl+e)
 	map <silent> <C-E> :browse confirm e<CR>
-	imap <C-E> <C-O><C-E>
 	" Open in new tab (ctrl+n+e)
 	map <silent> <C-N><C-E> :browse tabnew<CR>
-	imap <C-S-E> <C-O><C-N><C-E>
 endif
 
 " Highlight on overlenght
