@@ -49,7 +49,7 @@ nnoremap k gk
 vnoremap j gj
 vnoremap k gk
 
-" Clear search pattern
+" Clear search pattern (\c lean)
 map <silent> <Leader>c :let @/ = ""<CR>
 
 " Highlight local variables
@@ -135,6 +135,12 @@ let delimitMate_expand_space=1
 let g:clang_complete_auto=0
 " Show clang errors in the quickfix window
 let g:clang_complete_copen=1
+
+" Doxygen options
+let g:load_doxygen_syntax=1
+let g:doxygen_enhanced_colour=1
+map <F1> :Dox<CR>
+imap <F1> <C-O><F1>
 
 " Select all (ctrl+a)
 map <silent> <C-A> gg0vG$
